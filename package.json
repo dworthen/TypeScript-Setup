@@ -1,0 +1,33 @@
+{
+    "name": "authoring-typescript-libraries",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib/umd/index.js",
+    "module": "lib/esm/index.js",
+    "types": "lib/typings/index.d.ts",
+    "files": [
+        "lib/esm/*",
+        "lib/typings/*",
+        "lib/umd/*"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "clean": "rimraf lib/*",
+        "build:commonjs": "tsc",
+        "build:esm": "tsc --target ES2015 --module ES2015 --outDir ./lib/esm/ --declaration true --declarationDir ./lib/typings/",
+        "build:umd": "webpack",
+        "prebuild:umd": "npm run clean && npm run build:esm"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "rimraf": "^2.6.2",
+        "ts-node": "^6.0.5",
+        "typescript": "^2.8.3",
+        "webpack": "^4.9.1",
+        "webpack-cli": "^2.1.4"
+    }
+}
